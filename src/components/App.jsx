@@ -5,7 +5,7 @@ import s from './App.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   createContactsThunk,
   deleteContactsThunk,
@@ -14,6 +14,11 @@ import {
 import Loader from './loader/Loader';
 import { changeFilter } from 'store/contactSliсe';
 import { contactsSelector, filterSelector } from 'store/selectors';
+import Header from './Header/Header';
+import Modal from './Modal/Modal';
+import { nanoid } from '@reduxjs/toolkit';
+import FormLogin from './FormLogin/FormLogin';
+
 
 const App = () => {
   const { items, isLoading, error } = useSelector(contactsSelector);
@@ -50,10 +55,41 @@ const App = () => {
       .sort((a, b) => a.name.localeCompare(b.name));
   };
 
+  //...//
+  const [isShowModal, setIsShowModal] = useState(false);
+
+
+  const showModal = () => {
+    setIsShowModal(true);
+    // this.setState({ isShowModal: true });
+  };
+  const closeModal = () => {
+    setIsShowModal(false);
+    // this.setState({ isShowModal: false });
+  };
+  const createUser = (data) => {
+    const newUser = {
+      ...data,
+      id: nanoid(),
+    };
+    console.log(newUser);
+  };
+
+  //...//
+
+
+
   // console.log('filter=>', filter, 'contacts=>', items, 'error=>', error);
 
   return (
     <div className={s.appContainer}>
+      <Header showModal={showModal} />
+      {isShowModal && (
+        <Modal closeModal={closeModal}>
+          <FormLogin createUser={createUser} closeModal={closeModal} />
+        </Modal>
+      )}
+      
       <h1 className={s.titlePhonebook}>Phonebook</h1>
 
       <ContactForm addContact={addContact} />
