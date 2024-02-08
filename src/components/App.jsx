@@ -6,7 +6,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from './hooks';
-import { Loader } from './Loader/Loader';
+// import { Loader } from './Loader/Loader';
 
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -23,9 +23,10 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <Loader />
-  ) : (
+  return (
+  // isRefreshing ? (
+  //   <Loader />
+  // ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
