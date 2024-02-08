@@ -1,79 +1,44 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { delContact } from 'redux/contacts/operations';
-import { getContacts, getFilter } from 'redux/contacts/selectors';
-// import css from './ContactList.module.css';
-import { Button, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
+import s from './ContactList.module.css';
 
-const getVisibleContacts = (contacts, filter) => {
-  if (!filter) {
-    return contacts;
-  } else {
-    return contacts.filter(contact => {
-      return contact.name.toLowerCase().includes(filter.toLowerCase());
-    });
-  }
-};
-
-export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-  const visibleContacts = getVisibleContacts(contacts, filter);
-
-  const dispatch = useDispatch();
-  const handleDelete = id => dispatch(delContact(id));
+export function ContactList({ errors, contacts, onDeleteContact }) {
+  // console.log('contacts:', contacts);
 
   return (
-    <Table variant="simple" maxWidth='600'>
-      <Thead>
-        <Tr>
-          <Th>Name</Th>
-          <Th>Number</Th>
-          <Th></Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {visibleContacts.map((contact, id) => (
-          <Tr key={id}>
-            <Td>{contact.name}</Td>
-            <Td>{contact.number} </Td>
-            <Td>
-              {' '}
-              {/* <button
-                type="button"
-                className={css.contactListItemBtn}
-                onClick={() => handleDelete(contact.id)}
-              >
-                Delete
-              </button> */}
-              <Button
-                colorScheme="teal"
-                variant="outline"
-                type="button"
-                onClick={() => handleDelete(contact.id)}
-              >
-                Delete
-              </Button>
-            </Td>
-          </Tr>
-        ))}
-      </Tbody>
-    </Table>
-  );
-};
+    <ul className={s.contactList}>
+      {errors ? (
+        <h2>{errors}</h2>
+      ) : Array.isArray(contacts) && contacts.length === 0 ? (
+        <p>No contacts available.</p>
+      ) : (
+        contacts.map(({ id, name, phone }) => (
+          <li key={id} className={s.contactItem}>
+            <span className={s.contactName}>{name}:</span>
+            <span>{phone}</span>
+            <button
+              className={s.contactButton}
+              type="button"
+              id={id}
+              onClick={() => onDeleteContact(id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))
+      )}
+    </ul>
 
-// <div className={css.wraperContactList}>
-//   <ul className={css.contactList}>
-//     {visibleContacts.map((contact, id) => (
-//       <li key={id} className={css.contactListItem}>
-//         {contact.name}: {contact.number}
-// <button
-//   type="button"
-//   className={css.contactListItemBtn}
-//   onClick={() => handleDelete(contact.id)}
-// >
-//   Delete
-// </button>
-//       </li>
-//     ))}
-//   </ul>
-// </div>
+  );
+}
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ),
+  onDeleteContact: PropTypes.func.isRequired,
+  errors: PropTypes.string,
+};
