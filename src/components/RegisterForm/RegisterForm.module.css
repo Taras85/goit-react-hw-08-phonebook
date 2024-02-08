@@ -1,22 +1,30 @@
-/* .form {
+.form {
   display: flex;
   flex-direction: column;
+  justify-items: center;
+  align-items: center;
 }
 
-.formLabel,
-.formName,
-.formNumber {
+.label {
+  width: 400px;
   display: flex;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-  margin: 1rem auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 5px auto;
   align-items: center;
   font-size: large;
   text-align: left;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 5px 1rem 5px 1rem;
+  color: teal;
 }
 
+
+.input {
+  margin: 5px;
+  width: 250px
+}
+/* 
 .formBtn {
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -40,6 +48,4 @@
 .formBtn:hover {
   background-color: rgba(23, 26, 32, 1);
   cursor: pointer;
-} */
-
-
+}  */
