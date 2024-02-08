@@ -79,10 +79,3 @@ export const RegisterForm = () => {
   );
 };
 
-
-{/* <input
-          className={css.label}
-          type="text"
-          name="name"
-          placeholder="Enter user name"
-        /> */}
