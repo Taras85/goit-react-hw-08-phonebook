@@ -12,7 +12,7 @@ const styles = {
   },
 }
 
-const Loader = () => {
+export const Loader = () => {
   return (
     <div style={styles.container}>
       <Dna
@@ -27,4 +27,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+// export default Loader;
