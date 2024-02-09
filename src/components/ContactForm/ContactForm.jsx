@@ -4,6 +4,7 @@ import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
+import { Button, Input } from '@chakra-ui/react';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -37,7 +38,10 @@ export const ContactForm = () => {
     <form className={css.form} onSubmit={handleFormSubmit}>
       <label className={css.formLabel}>
         Name
-        <input
+        <Input
+                      variant="outline"
+            focusBorderColor="teal.300"
+
           className={css.formName}
           type="text"
           name="name"
@@ -51,7 +55,9 @@ export const ContactForm = () => {
       </label>
       <label className={css.formLabel}>
         Number
-        <input
+        <Input
+                                variant="outline"
+            focusBorderColor="teal.300"
           className={css.formNumber}
           type="tel"
           name="number"
@@ -63,9 +69,10 @@ export const ContactForm = () => {
           onChange={handleChangeNumber}
         />
       </label>
-      <button className={css.formBtn} type="submit">
+      <Button         colorScheme="teal"
+        variant="outline" className={css.formBtn} type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

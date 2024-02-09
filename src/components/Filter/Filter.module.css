@@ -1,7 +1,8 @@
-/* .filterName {
+.filterName {
+  width: 250px;
   display: flex;
   flex-direction: column;
-  margin: 0.5rem auto 1rem;
+  /* margin: 5px auto 1rem; */
   align-items: center;
   font-size: large;
   text-align: left;
@@ -9,11 +10,13 @@
 }
 
 .filterLabel {
+  width: 250px;
   display: flex;
   flex-direction: column;
-  margin: 0.5rem auto;
-  align-items: center;
+  margin:20px ;
+  align-items: flex-start;
   font-size: large;
   text-align: left;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-} */
+  padding: 5px 1rem 5px 1rem;
+  color: teal;
+}

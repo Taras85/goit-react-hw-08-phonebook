@@ -27,12 +27,6 @@ export const LoginForm = () => {
       <form  className={css.form} onSubmit={handleSubmit} autoComplete="off">
         <label className={css.label}>
           Email
-          {/* <input
-            className={css.label}
-            type="email"
-            name="email"
-            placeholder="Enter email"
-          /> */}
           <Input className={css.input}
             variant="outline"
             focusBorderColor="teal.300"
@@ -47,13 +41,6 @@ export const LoginForm = () => {
 
         <label color="teal" className={css.label}>
           Password
-          {/*    
-          <input
-          className={css.label}
-          type="password"
-          name="password"
-          placeholder="Enter password"
-        /> */}
           <Input className={css.input}
             variant="outline"
             focusBorderColor="teal.300"
@@ -63,10 +50,7 @@ export const LoginForm = () => {
           />
         </label>
 
-        {/* <button className={css.formBtn} type="submit">
-        Log In
-      </button> */}
-            <Button colorScheme="teal" variant="outline" type="submit">
+        <Button colorScheme="teal" variant="outline" type="submit">
         Log In
       </Button>
         <div></div>

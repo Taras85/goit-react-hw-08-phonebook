@@ -3,7 +3,7 @@ import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from '../hooks';
 import css from './AppBar.module.css';
-
+import { Heading } from '@chakra-ui/react';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
@@ -11,8 +11,12 @@ export const AppBar = () => {
   return (
     <header className={css.header}>
       <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <Heading as="h2" size="xl" color='teal'>
+        Phonebook
+      </Heading>
+      {/* <h5>Phonebook</h5> */}
 
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </header>
   );
 };

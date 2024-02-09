@@ -23,28 +23,22 @@ export const ContactList = () => {
   const handleDelete = id => dispatch(delContact(id));
 
   return (
-    <Table variant="simple" maxWidth='600'>
-      <Thead>
-        <Tr>
-          <Th>Name</Th>
-          <Th>Number</Th>
+    <Table  borderWidth="1px" borderColor="gray.200" >
+      <Thead >
+        <Tr >
+          <Th color="teal.500">Name</Th>
+          <Th color="teal.500">Number</Th>
           <Th></Th>
         </Tr>
       </Thead>
-      <Tbody>
+      <Tbody >
         {visibleContacts.map((contact, id) => (
-          <Tr key={id}>
-            <Td>{contact.name}</Td>
+          <Tr key={id} >
+            <Td >{contact.name}</Td>
             <Td>{contact.number} </Td>
             <Td>
-              {' '}
-              {/* <button
-                type="button"
-                className={css.contactListItemBtn}
-                onClick={() => handleDelete(contact.id)}
-              >
-                Delete
-              </button> */}
+
+ 
               <Button
                 colorScheme="teal"
                 variant="outline"
