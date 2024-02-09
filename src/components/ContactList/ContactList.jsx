@@ -23,7 +23,7 @@ export const ContactList = () => {
   const handleDelete = id => dispatch(delContact(id));
 
   return (
-    <Table  borderWidth="1px" borderColor="gray.200" >
+    <Table  borderWidth="1px" borderColor="gray.200"  boxShadow='md' p='6' rounded='md' bg='white'>
       <Thead >
         <Tr >
           <Th color="teal.500">Name</Th>
