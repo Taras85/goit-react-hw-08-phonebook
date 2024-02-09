@@ -29,13 +29,8 @@ export const RegisterForm = () => {
           type="text"
           name="name"
           placeholder="Enter user name"
+          required
         ></Input >
-        {/* <input
-          className={css.label}
-          type="text"
-          name="name"
-          placeholder="Enter user name"
-        /> */}
       </label>
       <label className={css.label}>
         Email
@@ -45,13 +40,8 @@ export const RegisterForm = () => {
           type="email"
           name="email"
           placeholder="Enter email"
+          required
         ></Input>
-        {/* <input
-          className={css.label}
-          type="email"
-          name="email"
-          placeholder="Enter email"
-        /> */}
       </label>
       <label className={css.label}>
         Password
@@ -61,20 +51,14 @@ export const RegisterForm = () => {
           type="password"
           name="password"
           placeholder="Enter password"
+          required
         ></Input>
-        {/* <input
-          className={css.label}
-          type="password"
-          name="password"
-          placeholder="Enter password"
-        /> */}
+
       </label>
       <Button colorScheme="teal" variant="outline" type="submit">
         Register
       </Button>
-      {/* <button className={css.formBtn} type="submit">
-        Register
-      </button> */}
+
     </form>
   );
 };

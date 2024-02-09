@@ -11,7 +11,7 @@ export const AppBar = () => {
   return (
     <header className={css.header}>
       <Heading as="h2" size="xl" color='teal'>
-        Phonebook
+        YourPhonebook
       </Heading>
       <Navigation />
       

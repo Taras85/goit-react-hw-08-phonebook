@@ -13,13 +13,7 @@ export const UserMenu = () => {
       <p className={css.username}>
         Welcome, <span className={css.logInUser}>{user.name}</span>
       </p>
-      {/* <button
-        className={css.btnLogin}
-        type="button"
-        onClick={() => dispatch(logOut())}
-      >
-        <span className="material-symbols-outlined">LOGOUT</span>
-      </button> */}
+
       <Button
         colorScheme="teal"
         variant="outline"

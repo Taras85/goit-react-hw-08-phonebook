@@ -32,7 +32,8 @@ export const LoginForm = () => {
             focusBorderColor="teal.300"
             type="email"
             name="email"
-            placeholder="Enter email"
+          placeholder="Enter email"
+          required
           />
         </label>
         
@@ -46,7 +47,8 @@ export const LoginForm = () => {
             focusBorderColor="teal.300"
             type="password"
             name="password"
-            placeholder="Enter password"
+          placeholder="Enter password"
+          required
           />
         </label>
 

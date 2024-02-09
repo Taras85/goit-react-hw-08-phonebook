@@ -5,28 +5,29 @@ import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
-// import { useAuth } from './hooks';
-// import { Loader } from './Loader/Loader';
-
+import { useAuth } from './hooks';
+import  Loader  from './Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
+const ProfilePage = lazy(() => import('../pages/Profile'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
-  // const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
   return (
-  // isRefreshing ? (
-  //   <Loader />
-  // ) : (
+    isRefreshing ? (
+      <Loader />
+    ) : (
+    
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -45,13 +46,20 @@ export const App = () => {
             <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
+
         <Route
           path="contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
+        <Route
+          path="profile"
+          element={
+            <PrivateRoute redirectTo="/profile" component={<ProfilePage />} />
+          }
+        />
       </Route>
     </Routes>
-  );
+  ));
 };

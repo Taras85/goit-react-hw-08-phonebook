@@ -5,10 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
 import { Button, Input } from '@chakra-ui/react';
+import InputMask from 'react-input-mask';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  
+   
+  
   const dispatch = useDispatch();
   const items = useSelector(getContacts);
 
@@ -25,11 +30,13 @@ export const ContactForm = () => {
   const handleFormSubmit = e => {
     e.preventDefault();
     const contactsLists = [...items];
-    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
-      alert(`${name} is already in contacts.`);
-    } else {
-      dispatch(addContact({ name, number }));
-    }
+    // !== -1
+    contactsLists.some(contact => name.toLowerCase() === contact.name.toLowerCase()) 
+      ? alert(`${name} is already in contacts.`)
+      : contactsLists.some(contact => number === contact.number)
+      ? alert(`${number} is already in number.`)
+      :dispatch(addContact({ name, number }));
+    
     setName('');
     setNumber('');
   };
@@ -39,9 +46,10 @@ export const ContactForm = () => {
       <label className={css.formLabel}>
         Name
         <Input
-                      variant="outline"
-            focusBorderColor="teal.300"
 
+          focusBorderColor="teal.500"
+                    value={name}
+          onChange={handleChangeName}
           className={css.formName}
           type="text"
           name="name"
@@ -49,15 +57,16 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           placeholder="Enter name"
-          value={name}
-          onChange={handleChangeName}
+
         />
       </label>
       <label className={css.formLabel}>
         Number
-        <Input
-                                variant="outline"
-            focusBorderColor="teal.300"
+        <InputMask
+   
+          focusBorderColor="teal.300"
+          value={number}
+          onChange={handleChangeNumber}
           className={css.formNumber}
           type="tel"
           name="number"
@@ -65,12 +74,18 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="Enter phone number"
-          value={number}
-          onChange={handleChangeNumber}
+          mask="+38(099)999-99-99" 
+          maskChar="_" 
+          
+
         />
       </label>
-      <Button         colorScheme="teal"
-        variant="outline" className={css.formBtn} type="submit">
+      <Button
+        colorScheme="teal"
+        variant="outline"
+        className={css.formBtn}
+        type="submit"
+      >
         Add contact
       </Button>
     </form>
