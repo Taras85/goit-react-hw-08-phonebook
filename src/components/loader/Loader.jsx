@@ -20,7 +20,7 @@ export const Loader = () => {
         height="50"
         width="80"
         ariaLabel="dna-loading"
-        wrapperStyle={{}}
+        // wrapperStyle={{}}
         wrapperClass="dna-wrapper"
       />
     </div>
