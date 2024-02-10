@@ -6,7 +6,7 @@ import { getIsLoading } from 'redux/contacts/selectors';
 import { ContactList } from 'components/ContactList/ContactList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { Filter } from 'components/Filter/Filter';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'components/Loader/Spiner';
 // import Loader from 'components/Loader/Loader';
 
 export default function Contacts() {
