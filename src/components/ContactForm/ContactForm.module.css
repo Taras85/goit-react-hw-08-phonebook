@@ -30,7 +30,8 @@
   appearance: none;
   margin: 5px;
   width: 250px;
-  border: 1px solid --chakra-colors-gray-300;
+  border: 1px solid #E2E8F0;
+
   border-radius: 5px;
   padding: 6px;
   outline: none;
