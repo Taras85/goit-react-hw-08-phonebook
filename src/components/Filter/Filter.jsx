@@ -14,18 +14,19 @@ export const Filter = () => {
 
   return (
     <div>
-      <label className={css.filterLabel}>Find contacts by Name 
-      <Input
-                                        variant="outline"
-            focusBorderColor="teal.500"
-        className={css.filterName}
-        type="text"
-        name="filter"
-        placeholder="Enter filter"
-        value={filter}
-        onChange={handleChange}
+      <label className={css.filterLabel}>
+        Find contacts by Name
+        <Input
+          variant="outline"
+          focusBorderColor="teal.500"
+          className={css.filterName}
+          type="text"
+          name="filter"
+          placeholder="Enter filter"
+          value={filter}
+          onChange={handleChange}
         />
-        </label>
+      </label>
     </div>
   );
 };
