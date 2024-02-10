@@ -11,9 +11,6 @@ export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  
-   
-  
   const dispatch = useDispatch();
   const items = useSelector(getContacts);
 
@@ -31,12 +28,14 @@ export const ContactForm = () => {
     e.preventDefault();
     const contactsLists = [...items];
     // !== -1
-    contactsLists.some(contact => name.toLowerCase() === contact.name.toLowerCase()) 
+    contactsLists.some(
+      contact => name.toLowerCase() === contact.name.toLowerCase()
+    )
       ? alert(`${name} is already in contacts.`)
       : contactsLists.some(contact => number === contact.number)
       ? alert(`${number} is already in number.`)
-      :dispatch(addContact({ name, number }));
-    
+      : dispatch(addContact({ name, number }));
+
     setName('');
     setNumber('');
   };
@@ -46,9 +45,8 @@ export const ContactForm = () => {
       <label className={css.formLabel}>
         Name
         <Input
-
           focusBorderColor="teal.500"
-                    value={name}
+          value={name}
           onChange={handleChangeName}
           className={css.formName}
           type="text"
@@ -57,14 +55,11 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           placeholder="Enter name"
-
         />
       </label>
       <label className={css.formLabel}>
         Number
         <InputMask
-   
-          focusBorderColor="teal.300"
           value={number}
           onChange={handleChangeNumber}
           className={css.formNumber}
@@ -74,10 +69,8 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="Enter phone number"
-          mask="+38(099)999-99-99" 
-          maskChar="_" 
-          
-
+          mask="+38(099)999-99-99"
+          maskChar="_"
         />
       </label>
       <Button
