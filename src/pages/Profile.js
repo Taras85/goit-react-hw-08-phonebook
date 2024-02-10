@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Button, } from '@chakra-ui/react';
 import { useAuth } from 'components/hooks';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
@@ -27,9 +27,13 @@ const styles = {
   },
 };
 
+// var datalocal = JSON.parse(localStorage.getItem('persist:auth'))
+// console.log('datalocal:', datalocal.token)
+
 export default function Profile() {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+  const { user,  } = useAuth();
+  
   return (
     <div style={styles.container}>
       <label style={styles.lable}>
@@ -38,6 +42,7 @@ export default function Profile() {
       <label style={styles.lable}>
         Email<p style={styles.paragraph}>{user.email}</p>
       </label>
+
 
       <Button
         colorScheme="teal"

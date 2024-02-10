@@ -30,21 +30,26 @@
   appearance: none;
   margin: 5px;
   width: 250px;
-  border: 2px solid #eff2f5;
+  border: 1px solid teal;
   border-radius: 5px;
   padding: 6px;
   outline: none;
-  
+      transition-property: var(--chakra-transition-property-common);
+        transition-duration: var(--chakra-transition-duration-normal);
 
 }
-
+.formNumber:hover,
+.formNumber:focus{
+    border-color: var(--chakra-colors-gray-300);
+}
 
 /* .formNumber:focus, */
 /* .formNumber:not(:placeholder-shown) */
 /* .formNumber:not(::placeholder) */
 .formNumber:focus-visible
 {
- 
-  border-color: teal ;
+z-index: 1;
+  border-color: #319795;
+  box-shadow: 0 0 0 1px #319795;
 }
 

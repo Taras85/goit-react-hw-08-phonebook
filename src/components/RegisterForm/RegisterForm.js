@@ -25,7 +25,7 @@ export const RegisterForm = () => {
         Username
         <Input className={css.input}
           variant="outline"
-          focusBorderColor="teal.300"
+          focusBorderColor="teal.500"
           type="text"
           name="name"
           placeholder="Enter user name"
@@ -36,7 +36,7 @@ export const RegisterForm = () => {
         Email
         <Input className={css.input}
           variant="outline"
-          focusBorderColor="teal.300"
+          focusBorderColor="teal.500"
           type="email"
           name="email"
           placeholder="Enter email"
@@ -47,7 +47,7 @@ export const RegisterForm = () => {
         Password
         <Input className={css.input}
           variant="outline"
-          focusBorderColor="teal.300"
+          focusBorderColor="teal.500"
           type="password"
           name="password"
           placeholder="Enter password"
