@@ -19,16 +19,13 @@ export default function Contacts() {
 
   return (
     <>
-      {/* <HelmetProvider>
-        <Helmet> */}
-          <title>Phonebook</title>
-        {/* </Helmet> */}
-        <ContactForm />
-      {/* <div>{isLoading && 'Request in progress...'}</div> */}
-      {isLoading && <Loader/>}
-        <Filter />
-        <ContactList />
-      {/* </HelmetProvider> */}
+      <title>Phonebook</title>
+
+      <ContactForm />
+
+      {isLoading && <Loader />}
+      <Filter />
+      <ContactList />
     </>
   );
 }
